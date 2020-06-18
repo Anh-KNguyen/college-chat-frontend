@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 
+const postButton = <button>Post</button>
+
+
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    postButton,
     document.getElementById('root')
 );
