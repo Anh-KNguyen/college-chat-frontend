@@ -2,10 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
 
-const postButton = <button>Post</button>
+const MainPage = props => (
+    <button id="post-button"> Post </button>
+)
 
+class App extends React.Component {
+    render() {
+        return (
+            <MainPage />
+        );
+    }
+}
 
-ReactDOM.render(
-    postButton,
-    document.getElementById('root')
-);
+const mainNode = document.getElementById("root");
+ReactDOM.render(<App />, mainNode);
