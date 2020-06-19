@@ -4,15 +4,24 @@ import './index.css'
 
 const MainPage = props => (
     <div id="main-page-buttons">
-        <button id="post-button"> Post </button>
-        <button id="delete-button"> Delete </button>
+        
     </div>
 )
 
 class App extends React.Component {
+    handleClick() {
+        console.log('Click happened');
+    }
+    
     render() {
         return (
-            <MainPage />
+            <div>
+                <button id="post-button" onClick={this.handleClick}> Post </button>
+                <button id="delete-button"> Delete </button>
+                <button id="show-all-button"> Show All </button>
+                <button id="show-single-button"> Show Single</button>
+            </div>
+            
         );
     }
 }
