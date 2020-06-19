@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css'
 
 const MainPage = props => (
-    <button id="post-button"> Post </button>
+    <div id="main-page-buttons">
+        <button id="post-button"> Post </button>
+        <button id="delete-button"> Delete </button>
+    </div>
 )
 
 class App extends React.Component {
