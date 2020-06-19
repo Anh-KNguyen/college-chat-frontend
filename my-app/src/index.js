@@ -19,12 +19,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <textarea> this is a text area </textarea>
                 <button id="post-button" onClick={this.handlePostClick}> Post </button>
                 <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
                 <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
                 <button id="show-single-button" onClick={this.handleShowSingleClick}> Show Single</button>
             </div>
-            
         );
     }
 }
