@@ -4,7 +4,15 @@ import './index.css'
 
 class App extends React.Component {
     handlePostClick() {
-        console.log('Post click happened');
+        // do a POST request to localhost:3000/articles
+        /*
+        {
+            "Id": "13", 
+            "Title": "Newly Created Post", 
+            "desc": "The description for my new post", 
+            "content": "my articles content" 
+        }  
+        */
     }
     handleDeleteClick() {
         console.log('Delete click happened');
