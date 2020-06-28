@@ -13,12 +13,17 @@ class App extends React.Component {
             "content": "my articles content" 
         }  
         */
+       console.log('Post click happened');
     }
     handleDeleteClick() {
         console.log('Delete click happened');
     }
     handleShowAllClick() {
-        console.log('Show All click happened');
+        let showAllData = console.log('Show All click happened');
+        fetch('http://localhost:3000/articles')
+            .then(response => response.json())
+            .then(data => console.log(data));
+        
     }
     handleShowSingleClick() {
         console.log('Show Single click happened')
