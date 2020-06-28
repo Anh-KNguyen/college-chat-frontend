@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css'
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleShowAllClick = this.handleShowAllClick.bind(this);
+        this.state = {articles: []};
+    }
     handlePostClick() {
         // do a POST request to localhost:3000/articles
         /*
@@ -18,12 +23,12 @@ class App extends React.Component {
     handleDeleteClick() {
         console.log('Delete click happened');
     }
-    handleShowAllClick() {
-        let showAllData = console.log('Show All click happened');
+    async handleShowAllClick() {
         fetch('http://localhost:3000/articles')
             .then(response => response.json())
-            .then(data => console.log(data));
-        
+            .then(data => this.setState({
+                articles: data
+            }));
     }
     handleShowSingleClick() {
         console.log('Show Single click happened')
@@ -35,9 +40,17 @@ class App extends React.Component {
                 <textarea> this is a text area </textarea>
                 <button id="post-button" onClick={this.handlePostClick}> Post </button>
                 <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
-                <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
+                <div>
+                    <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
+                    <ul>
+                        {this.state.articles.map(d => (
+                            <li>{d.Id}, {d.Title}, {d.desc}, {d.content}</li>
+                        ))}
+                    </ul>
+                </div>
                 <button id="show-single-button" onClick={this.handleShowSingleClick}> Show Single</button>
             </div>
+            
         );
     }
 }
