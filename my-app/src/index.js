@@ -6,7 +6,10 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.handleShowAllClick = this.handleShowAllClick.bind(this);
-        this.state = {articles: []};
+        this.handleShowSingleClick = this.handleShowSingleClick.bind(this);
+        this.state = {articles: [],
+                      article: {}
+                     };
     }
     handlePostClick() {
         // do a POST request to localhost:3000/articles
@@ -30,8 +33,12 @@ class App extends React.Component {
                 articles: data
             }));
     }
-    handleShowSingleClick() {
-        console.log('Show Single click happened')
+    async handleShowSingleClick() {
+        fetch('http://localhost:3000/article/1')
+            .then(response => response.json())
+            .then(dataOne => this.setState({
+                article: dataOne
+            }));
     }
     
     render() {
@@ -48,7 +55,13 @@ class App extends React.Component {
                         ))}
                     </ul>
                 </div>
-                <button id="show-single-button" onClick={this.handleShowSingleClick}> Show Single</button>
+                <div>
+                    <button id="show-single-button" onClick={this.handleShowSingleClick}> Show Single</button>
+                    <ul>
+                        {this.state.article.Id}
+                    </ul>
+                </div>
+                
             </div>
             
         );
