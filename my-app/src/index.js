@@ -46,7 +46,9 @@ class App extends React.Component {
             <div>
                 <textarea> this is a text area </textarea>
                 <button id="post-button" onClick={this.handlePostClick}> Post </button>
-                <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
+                <div>
+                    <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
+                </div>
                 <div>
                     <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
                     <ul>
