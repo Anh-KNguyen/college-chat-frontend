@@ -7,6 +7,7 @@ class App extends React.Component {
         super(props);
         this.handleShowAllClick = this.handleShowAllClick.bind(this);
         this.handleShowSingleClick = this.handleShowSingleClick.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
         this.state = {articles: [],
                       article: {}
                      };
