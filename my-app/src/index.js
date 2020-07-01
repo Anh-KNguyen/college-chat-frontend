@@ -25,7 +25,7 @@ class App extends React.Component {
        console.log('Post click happened');
     }
     handleDeleteClick() {
-        console.log('Delete click happened');
+        fetch('localhost:3000/article/1')
     }
     async handleShowAllClick() {
         fetch('http://localhost:3000/articles')
