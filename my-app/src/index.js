@@ -25,11 +25,10 @@ class App extends React.Component {
        console.log('Post click happened');
     }
     handleDeleteClick() {
-        fetch('localhost:3000/article/1')
-            .then(response => response.json())
-            .then(dataDel => this.setState({
-                articles: dataDel
-            }))
+        fetch('http://localhost:3000/article/1',
+        {
+            method: 'DELETE'
+        })
     }
     async handleShowAllClick() {
         fetch('http://localhost:3000/articles')
