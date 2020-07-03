@@ -8,8 +8,10 @@ class App extends React.Component {
         this.handleShowAllClick = this.handleShowAllClick.bind(this);
         this.handleShowSingleClick = this.handleShowSingleClick.bind(this);
         this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleDeleteChange = this.handleDeleteChange.bind(this);
         this.state = {articles: [],
-                      article: {}
+                      article: {},
+                      id_num: undefined
                      };
     }
     handlePostClick() {
@@ -24,8 +26,15 @@ class App extends React.Component {
         */
        console.log('Post click happened');
     }
+    handleDeleteChange(e) {
+        this.setState({
+            id_num: e.target.value
+        })
+    }
+    
     handleDeleteClick() {
-        fetch('http://localhost:3000/article/1',
+        let id = this.state.id_num
+        fetch('http://localhost:3000/article/' + id,
         {
             method: 'DELETE'
         })
@@ -51,7 +60,9 @@ class App extends React.Component {
                 <textarea> this is a text area </textarea>
                 <button id="post-button" onClick={this.handlePostClick}> Post </button>
                 <div>
+                    <input type="text" value={this.state.id_num} onChange={this.handleDeleteChange}/>
                     <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
+
                 </div>
                 <div>
                     <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
