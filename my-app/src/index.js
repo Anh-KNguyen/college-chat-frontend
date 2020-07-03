@@ -53,7 +53,7 @@ class App extends React.Component {
                 article: dataOne
             }));
     }
-    
+    // note: each article should have delete and update components
     render() {
         return (
             <div>
@@ -62,7 +62,6 @@ class App extends React.Component {
                 <div>
                     <input type="text" value={this.state.id_num} onChange={this.handleDeleteChange}/>
                     <button id="delete-button" onClick={this.handleDeleteClick}> Delete </button>
-
                 </div>
                 <div>
                     <button id="show-all-button" onClick={this.handleShowAllClick}> Show All </button>
